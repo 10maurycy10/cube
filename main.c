@@ -36,13 +36,13 @@ int main(int argc, char **argv) {
 	int mode = P_PERSPECTIVE;
 	if (argc > 1) {
 		char* modes = argv[1];
-		if (0==strncmp(modes,"isometric", 3)) {
-			mode = P_ISOMETRIC;
+		if (0==strncmp(modes,"oblique", 3)) {
+			mode = P_OBLIQUE;
 		} else if (0==strncmp(modes,"perspective", 3)) {
 			mode = P_PERSPECTIVE;
 		} else {
 			printf("Usage: %s [MODE]\n", argv[0]);
-			printf("MODE is 'perspective' or 'isometric'.\n");
+			printf("MODE is 'perspective' or 'oblique'.\n");
 			return 1;
 		}
 	}

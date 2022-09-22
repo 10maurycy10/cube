@@ -54,7 +54,7 @@ void project_point_perspective(float start[3], float out[2]) {
 }
 
 // Projects a point from World space to screen space, using isometric perspective
-void project_point_isometric(float start[3], float out[2]) {
+void project_point_oblique(float start[3], float out[2]) {
 	float rotated_point[3];
 	rotate_point_3d(start, rotated_point);
 	out[0] = rotated_point[0] + (rotated_point[2] / 2);
@@ -67,9 +67,9 @@ void draw_line_3d(float start[3], float end[3], int perspective) {
 	float start2d[2];
 	float end2d[2];
 	switch (perspective) {
-		case P_ISOMETRIC:
-       			project_point_isometric(end, end2d);
-		       	project_point_isometric(start, start2d);
+		case P_OBLIQUE:
+       			project_point_oblique(end, end2d);
+		       	project_point_oblique(start, start2d);
 			break;
 		case P_PERSPECTIVE:
        			project_point_perspective(end, end2d);

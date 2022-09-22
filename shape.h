@@ -2,7 +2,7 @@
 #include <math.h>
 
 enum {
-	P_ISOMETRIC,
+	P_OBLIQUE,
 	P_PERSPECTIVE
 };
 
