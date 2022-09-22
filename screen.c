@@ -14,6 +14,7 @@ void clear_screen() {
 
 // Outputs screen buffer to stdout
 void printscreen() {
+	printf("\e[1;1H\e[2J"); // Clear the screen
 	char line[SCREEN_WIDTH+1];
 	for (int y = 0; y < SCREEN_HEIGHT; y++) {
 		for (int x = 0; x < SCREEN_WIDTH; x++)
@@ -21,6 +22,16 @@ void printscreen() {
 		line[SCREEN_WIDTH] = 0;
 		printf("%s\n", line);
 	}
+}
+
+void printstring(int x, int y,char* string) {
+	// For all chars in the string
+	for (char* c = string; *c; c++) {
+		if (x < SCREEN_WIDTH && x >= 0)
+			if (y < SCREEN_HEIGHT && y >= 0)
+				screenbuffer[x++][y] = *c;
+	}
+	
 }
 
 // Draw a line in the screen buffer
@@ -37,7 +48,9 @@ void draw_line(int x1, int y1, int x2, int y2) {
 		float y_offset = dy_step * (float)step;
 		int x = (int)x_offset + x1;
 		int y = (int)y_offset + y1;
-		screenbuffer[x][y] = '#';
+		if (x < SCREEN_WIDTH && x >= 0)
+			if (y < SCREEN_HEIGHT && y >= 0)
+				screenbuffer[x][y] = '#';
 	}
 	
 }
