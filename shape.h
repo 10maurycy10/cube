@@ -4,11 +4,5 @@
 #define SCREEN_WIDTH 80
 #define SCREEN_HEIGHT 40
 
-float transformation_matrix[2][2];
-
-typedef struct point {
-	float d[2];
-} point;
-
-point transform_point(point in);
+void transform_point(float in[2], float out[2]);
 void set_rotation(float angle);
