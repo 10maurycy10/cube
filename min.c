@@ -26,6 +26,7 @@ e[0]/e[2];}void dl(float a[3],float b[3]){float c[2];float d[2];pp(b,d);pp(a,c)
 ;d2((int)((c[0])*40.0+40.0),(int)((c[1])*20.0+20.0),(int)((d[0])*40.0+40.0),(
 int)((d[1])*20.0+20.0));}int m(long a){struct timespec o;struct timespec r={(
 int)(a/1000),(a%1000)*1000000};return nanosleep(&r,&o);}int main(void){int a=0;
-while(1){c();float b=(float)a/50;sr(b);for(int i=0;i<L;i++)dl(S[i][0],S[i][1]);
-p();printf("%d Lines. Frame %d\n",L,a);m(15);a++;}}
+setvbuf(stdout,NULL,_IOFBF,4096);while(1){c();float b=(float)a/50;sr(b);for(int
+i=0;i<L;i++)dl(S[i][0],S[i][1]);p();printf("%d Lines. Frame %d\n",L,a);fflush(
+stdout);m(15);a++;}}
 

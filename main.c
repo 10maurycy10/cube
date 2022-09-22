@@ -48,6 +48,8 @@ int main(int argc, char **argv) {
 	}
 	char statusline[512];
 	int frame = 0;
+	// Set stdout to fully buffered
+	setvbuf(stdout, NULL, _IOFBF, 4096);
 	while (1) {
 		// Blank the screenbuffer
 		clear_screen();
@@ -63,6 +65,7 @@ int main(int argc, char **argv) {
 		printstring(0,SCREEN_HEIGHT - 1,statusline);
 		// -- Drawing code end --
 		printscreen();
+		fflush(stdout);
 		msleep(15);
 		frame++;
 	}
