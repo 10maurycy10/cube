@@ -6,7 +6,7 @@ LINKFLAGS=-lm
 	$(CC) $(CFLAGS) -c $< -o $@ -g -Wall
 
 3d: $(OBJS)
-	$(CC) $(LINKFLAGS) $(LIBS) $(OBJS) -o 3d -g
+	$(CC) $(LIBS) $(OBJS) -o 3d -g $(LINKFLAGS)
 
 clean: 
 	-rm $(OBJS) 3d
